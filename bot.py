@@ -14,13 +14,13 @@ dp = Dispatcher()
 async def cmd_start(message: types.Message):
     builder = InlineKeyboardBuilder()
     
-    # Кнопка MiniApp
+    # Кнопка Играть
     builder.row(types.InlineKeyboardButton(
         text="🎮 Играть", 
         web_app=WebAppInfo(url="https://google.com"))
     )
     
-    # Кнопки Чат и Канал
+    # Чат и Канал
     builder.row(
         types.InlineKeyboardButton(text="💬 Чат", url="https://t.me/EagleChatCase"),
         types.InlineKeyboardButton(text="📢 Канал", url="https://t.me/EagleCase")
@@ -34,7 +34,6 @@ async def cmd_start(message: types.Message):
     await message.answer(text, reply_markup=builder.as_markup())
 
 async def main():
-    print("EagleCase запущен...")
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
